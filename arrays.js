@@ -21,4 +21,4 @@ console.log(a)
 console.log(a.indexOf(47))
 
 // Ternary operators
-console.log(a.indexOf(47) == 0 ? 'yep' : 'Nope')
+console.log(a.indexOf(47) === 0 ? 'yep' : 'Nope')
