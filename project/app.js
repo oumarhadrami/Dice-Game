@@ -25,7 +25,7 @@ console.log(x)
 
 document.querySelector('.dice').style.display = 'none';
 
-document.querySelector('.btn-roll').addEventListener('click', function () {
+document.querySelector('.btn-roll').addEventListener('click', function() {
   // 1. get a random number
   var dice = Math.floor(6 * Math.random() + 1);
 
@@ -35,12 +35,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
   diceDOM.setAttribute('src', 'dice-' + dice + '.png');
 
   // 3. update round score
-
-
-
-
 });
-
 
 /*if (scores[0] < 100 && scores[1] < 100) {
     activePlayer = updateScore(activePlayer, dice);
