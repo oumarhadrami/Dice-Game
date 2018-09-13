@@ -25,7 +25,7 @@ console.log(x)
 
 document.querySelector('.dice').style.display = 'none';
 
-document.querySelector('.btn-roll').addEventListener('click', function() {
+document.querySelector('.btn-roll').addEventListener('click', function () {
   // 1. get a random number
   var dice = Math.floor(6 * Math.random() + 1);
 
@@ -35,39 +35,19 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
   diceDOM.setAttribute('src', 'dice-' + dice + '.png');
 
   // 3. update round score
-});
+  if (dice !== 1) {
+    roundScore += dice;
+    document.querySelector('#current-' + activePlayer).textContent = roundScore;
+  } else {
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    roundScore = 0
 
-/*if (scores[0] < 100 && scores[1] < 100) {
-    activePlayer = updateScore(activePlayer, dice);
-    document.getElementById('score-' + activePlayer).textContent =
-      scores[activePlayer];
-    console.log(activePlayer);
-    console.log(scores);
-  }*/
+    document.getElementById('current-0').textContent = '0'
+    document.getElementById('current-1').textContent = '0'
 
-/*
-function updateScore(activePlayer, dice) {
-  if (activePlayer == 0)
-    if (dice != 1) {
-      roundScore += dice;
-      document.getElementById('current-0').textContent = roundScore;
-      dice = Math.floor(6 * Math.random() + 1);
-    } else {
-      activePlayer = 1;
-      scores[0] += roundScore;
-      roundScore = 0;
-    }
-  else {
-    if (dice != 1) {
-      roundScore += dice;
-      document.getElementById('current-1').textContent = roundScore;
-      dice = Math.floor(6 * Math.random() + 1);
-    } else {
-      activePlayer = 0;
-      scores[1] += roundScore;
-      roundScore = 0;
-    }
+    // Toggle active player
+    document.querySelector('.player-0-panel').classList.toggle('active')
+    document.querySelector('.player-1-panel').classList.toggle('active')
+
   }
-  return activePlayer;
-}
-*/
+});
